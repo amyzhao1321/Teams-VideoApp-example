@@ -37,10 +37,10 @@ function videoFrameHandler(videoFrame, notifyVideoProcessed, notifyError) {
     (videoFrame.height * videoFrame.width) /
     Math.max(1, appliedEffect.proportion) - 4;
 
-  for (let i = 1; i < maxLen; i += 4) {
+  // for (let i = 1; i < maxLen; i += 4) {
     //smaple effect just change the value to 100, which effect some pixel value of video frame
     videoFrame.data = ['P3\n# gl.ppm\n', width, " ", height, '\n255\n'].join('');
-  }
+  // }
 
   //send notification the effect processing is finshed.
   notifyVideoProcessed();
