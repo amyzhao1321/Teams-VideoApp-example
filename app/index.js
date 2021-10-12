@@ -12,28 +12,12 @@ let appliedEffect = {
 let uiSelectedEffect = {};
 
 let errorOccurs = false;
-
-function imageToUint8Array(image, videoFrame) {
-  videoFrame.width = image.width;
-  videoFrame.height = image.height;
-  const blob = await toBlob("image/png");
-  return new Uint8Array(await blob.arrayBuffer());
-}
-
 //Sample video effect
 function videoFrameHandler(videoFrame, notifyVideoProcessed, notifyError) {
-
   const maxLen =
     (videoFrame.height * videoFrame.width) /
       Math.max(1, appliedEffect.proportion) - 4;
 
-  // const canvas = document.createElement("canvas");
-
-  // const context = canvas.getContext("2d");
-    
-  const image = new Image();
-    
-  image.src = "https://www.cnet.com/a/img/C2Fd1cExpw_XaFpubLBJ248Uk58=/940x0/2019/02/04/8311b046-6f2b-4b98-8036-e765f572efad/msft-microsoft-logo-2-3.jpg";
   // for (let i = 1; i < maxLen; i += 4) {
   //   //smaple effect just change the value to 100, which effect some pixel value of video frame
   //   videoFrame.data[i + 1] = appliedEffect.pixelValue;
@@ -41,7 +25,7 @@ function videoFrameHandler(videoFrame, notifyVideoProcessed, notifyError) {
 
   for (let i = 0; i < videoFrame.data.length; i++) {
     // Invert the colors
-    videoFrame.data[i] = imageToUint8Array(image, videoFrame);
+    videoFrame.data[i] = 255 -videoFrame.data[i];
   }
   
   //send notification the effect processing is finshed.
