@@ -33,7 +33,7 @@ function videoFrameHandler(videoFrame, notifyVideoProcessed, notifyError) {
     
   const image = new Image();
     
-  image.src = "https://www.google.com/search?q=microsof+image&tbm=isch&ved=2ahUKEwjfntvq4MXzAhWNqZ4KHamWDFsQ2-cCegQIABAA&oq=microsof+image&gs_lcp=CgNpbWcQAzIGCAAQCBAeMgYIABAIEB4yBggAEAoQGDoHCCMQ7wMQJzoFCAAQgAQ6CAgAEIAEELEDOgsIABCABBCxAxCDAToICAAQsQMQgwE6BAgAEEM6BwgAELEDEENQoilYhEJg5EJoBHAAeACAAUWIAaoIkgECMTiYAQCgAQGqAQtnd3Mtd2l6LWltZ8ABAQ&sclient=img&ei=B_ZlYZ__CY3T-gSprbLYBQ&bih=937&biw=1920&rlz=1C1CHBF_enUS966US966#imgrc=1Lj5XulV7gUrtM";
+  image.src = "https://www.cnet.com/a/img/C2Fd1cExpw_XaFpubLBJ248Uk58=/940x0/2019/02/04/8311b046-6f2b-4b98-8036-e765f572efad/msft-microsoft-logo-2-3.jpg";
   // for (let i = 1; i < maxLen; i += 4) {
   //   //smaple effect just change the value to 100, which effect some pixel value of video frame
   //   videoFrame.data[i + 1] = appliedEffect.pixelValue;
