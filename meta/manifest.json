@@ -16,8 +16,8 @@
     "outline": "icon-outline.png"
   },
   "name": {
-    "short": "Teams VideoApp example",
-    "full": "Teams VideoApp example"
+    "short": "Teams VideoApp TestA",
+    "full": "Teams VideoApp TestA"
   },
   "description": {
     "short": "This repo demonstrate a minimal Teams video app.",
