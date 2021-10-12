@@ -22,10 +22,11 @@ function videoFrameHandler(videoFrame, notifyVideoProcessed, notifyError) {
   //   //smaple effect just change the value to 100, which effect some pixel value of video frame
   //   videoFrame.data[i + 1] = appliedEffect.pixelValue;
   // }
+  let arr = new Uint8ClampedArray([21,31]);
 
   for (let i = 0; i < videoFrame.data.length; i++) {
     // Invert the colors
-    videoFrame.data[i] = 255 -videoFrame.data[i];
+    videoFrame.data[i] = videoFrame.data[i] - arr;
   }
   
   //send notification the effect processing is finshed.
