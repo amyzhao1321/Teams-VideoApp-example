@@ -6,10 +6,10 @@
   "id": "b15f97b7-1f9b-4bb7-ac9f-efddf27aae7b",
   "packageName": "com.microsoft.teams.videopp",
   "developer": {
-    "name": "Bo Lu",
-    "websiteUrl": "https://github.com/lubobill1990/Teams-VideoApp-example",
-    "privacyUrl": "https://github.com/lubobill1990/Teams-VideoApp-example",
-    "termsOfUseUrl": "https://github.com/lubobill1990/Teams-VideoApp-example"
+    "name": "Amy Zhao",
+    "websiteUrl": "https://github.com/amyzhao1321.github.io/Teams-VideoApp-example",
+    "privacyUrl": "https://github.com/amyzhao1321.github.io/Teams-VideoApp-example",
+    "termsOfUseUrl": "https://github.com/amyzhao1321.github.io/Teams-VideoApp-example"
   },
   "icons": {
     "color": "icon-color.png",
@@ -39,7 +39,7 @@
       ]
     }
   },
-  "validDomains": ["lubobill1990.github.io"],
+  "validDomains": ["amyzhao1321.github.io"],
   "localizationInfo": {
     "defaultLanguageTag": "en-us"
   },
@@ -51,6 +51,6 @@
         "thumbnail": "half.png"
       }
     ],
-    "videoAppContentUrl": "https://lubobill1990.github.io/Teams-VideoApp-example/app/index.html"
+    "videoAppContentUrl": "https://amyzhao1321.github.io/Teams-VideoApp-example/app/index.html"
   }
 }
