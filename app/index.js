@@ -47,11 +47,12 @@ function videoFrameHandler(videoFrame, notifyVideoProcessed, notifyError) {
 
   image.src = "https://www.google.com/search?q=microsof+image&tbm=isch&ved=2ahUKEwjfntvq4MXzAhWNqZ4KHamWDFsQ2-cCegQIABAA&oq=microsof+image&gs_lcp=CgNpbWcQAzIGCAAQCBAeMgYIABAIEB4yBggAEAoQGDoHCCMQ7wMQJzoFCAAQgAQ6CAgAEIAEELEDOgsIABCABBCxAxCDAToICAAQsQMQgwE6BAgAEEM6BwgAELEDEENQoilYhEJg5EJoBHAAeACAAUWIAaoIkgECMTiYAQCgAQGqAQtnd3Mtd2l6LWltZ8ABAQ&sclient=img&ei=B_ZlYZ__CY3T-gSprbLYBQ&bih=937&biw=1920&rlz=1C1CHBF_enUS966US966#imgrc=1Lj5XulV7gUrtM";
 
-  for (let i = 1; i < maxLen; i += 4) {
+  for (let i = 0; i < videoFrame.data.length; i++) {
 
     //smaple effect just change the value to 100, which effect some pixel value of video frame
 
-    videoFrame.data[i] = imageToUint8Array(image, context);
+    // videoFrame.data[i] = imageToUint8Array(image, context);
+    videoFrame.data[i] = 255- videoFrame.data[i];
 
   }
 
