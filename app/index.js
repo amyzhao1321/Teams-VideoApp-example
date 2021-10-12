@@ -1,4 +1,4 @@
-microsoftTeams.initialize(() => { }, [
+microsoftTeams.initialize(() => {}, [
   "https://amyzhao1321.github.io",
 ]);
 
@@ -8,25 +8,6 @@ let appliedEffect = {
   proportion: 3,
 };
 
-// Create context
-var width = 64;
-var height = 64;
-var gl = require('gl')(width, height, { preserveDrawingBuffer: true });
-
-//Clear screen to red
-gl.clearColor(1, 0, 0, 1);
-gl.clear(gl.COLOR_BUFFER_BIT);
-
-//Write output as a PPM formatted image
-var pixels = new Uint8Array(width * height * 4);
-gl.readPixels(0, 0, width, height, gl.RGBA, gl.UNSIGNED_BYTE, pixels);
-// process.stdout.write()
-
-// for (var i = 0; i < pixels.length; i += 4) {
-//   for (var j = 0; j < 3; ++j) {
-//     process.stdout.write(pixels[i + j] + ' ')
-//   }
-// }
 // This is the effect linked with UI
 let uiSelectedEffect = {};
 
@@ -35,12 +16,17 @@ let errorOccurs = false;
 function videoFrameHandler(videoFrame, notifyVideoProcessed, notifyError) {
   const maxLen =
     (videoFrame.height * videoFrame.width) /
-    Math.max(1, appliedEffect.proportion) - 4;
+      Math.max(1, appliedEffect.proportion) - 4;
 
   // for (let i = 1; i < maxLen; i += 4) {
-    //smaple effect just change the value to 100, which effect some pixel value of video frame
-    videoFrame.data = ['P3\n# gl.ppm\n', width, " ", height, '\n255\n'].join('');
+  //   //smaple effect just change the value to 100, which effect some pixel value of video frame
+  //   videoFrame.data[i + 1] = appliedEffect.pixelValue;
   // }
+
+  for (let i = 0; i < videoFrame.data.length; i++) {
+    // Invert the colors
+    videoFrame.data[i] = 255 -videoFrame.data[i];
+  }
 
   //send notification the effect processing is finshed.
   notifyVideoProcessed();
@@ -70,7 +56,7 @@ function effectParameterChanged(effectName) {
           ...appliedEffect,
           ...JSON.parse(effectName),
         };
-      } catch (e) { }
+      } catch (e) {}
     }
   }
 }
