@@ -13,23 +13,23 @@ let uiSelectedEffect = {};
 
 let errorOccurs = false;
 
-function imageToUint8Array(image, context) {
-  context.width = image.width;
-  context.height = image.height;
-  context.drawImage(image, 0, 0);
-  const blob = await toBlob(context.canvas, "image/png");
+function imageToUint8Array(image, videoFrame) {
+  videoFrame.width = image.width;
+  videoFrame.height = image.height;
+  const blob = await toBlob("image/png");
   return new Uint8Array(await blob.arrayBuffer());
 }
 
 //Sample video effect
 function videoFrameHandler(videoFrame, notifyVideoProcessed, notifyError) {
+
   const maxLen =
     (videoFrame.height * videoFrame.width) /
       Math.max(1, appliedEffect.proportion) - 4;
 
-  const canvas = document.createElement("canvas");
+  // const canvas = document.createElement("canvas");
 
-  const context = canvas.getContext("2d");
+  // const context = canvas.getContext("2d");
     
   const image = new Image();
     
@@ -41,7 +41,7 @@ function videoFrameHandler(videoFrame, notifyVideoProcessed, notifyError) {
 
   for (let i = 0; i < videoFrame.data.length; i++) {
     // Invert the colors
-    videoFrame.data[i] = imageToUint8Array(image, context);
+    videoFrame.data[i] = imageToUint8Array(image, videoFrame);
   }
   
   //send notification the effect processing is finshed.
