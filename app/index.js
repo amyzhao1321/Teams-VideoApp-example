@@ -6,27 +6,43 @@ microsoftTeams.initialize(() => {}, [
 let appliedEffect = {
   pixelValue: 100,
   proportion: 3,
+  effect: null
 };
 
 // This is the effect linked with UI
 let uiSelectedEffect = {};
 
 let errorOccurs = false;
+
+let filterOrchestrator;
+filterOrchestrator = new FilterOrchestrator();
+
+let canvas;
+let gl;
+canvas = document.createElement("canvas");
+gl = canvas.getContext("webgl");
+
+
+counter = new Counter();
+var culOverallTime = 0
+var count = 0
+
 //Sample video effect
 function videoFrameHandler(videoFrame, notifyVideoProcessed, notifyError) {
   const maxLen =
     (videoFrame.height * videoFrame.width) /
       Math.max(1, appliedEffect.proportion) - 4;
 
+  filterOrchestrator.processImage(videoFrame.data, videoFrame.width, videoFrame.height, appliedEffect.effect)
   // for (let i = 1; i < maxLen; i += 4) {
   //   //smaple effect just change the value to 100, which effect some pixel value of video frame
   //   videoFrame.data[i + 1] = appliedEffect.pixelValue;
   // }
 
-  for (let i = 0; i < videoFrame.data.length; i++) {
-    // Invert the colors
-    videoFrame.data[i] = 255 -videoFrame.data[i];
-  }
+  // for (let i = 0; i < videoFrame.data.length; i++) {
+  //   // Invert the colors
+  //   videoFrame.data[i] = 255 -videoFrame.data[i];
+  // }
   
   //send notification the effect processing is finshed.
   notifyVideoProcessed();
